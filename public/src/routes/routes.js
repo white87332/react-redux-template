@@ -10,7 +10,8 @@ export default function createRoutes()
         <BrowserRouter>
             <Main>
                 <Layout>
-                    <Route exactly pattern="/" component={asyncComponent(() => System.import('../path/counter/counter').then(module => module.default))} />
+                    <Route exact path="/" component={asyncComponent(() => System.import('../path/index/index').then(module => module.default))} />
+                    <Route exact path="/counter" component={asyncComponent(() => System.import('../path/counter/counter').then(module => module.default))} />
                 </Layout>
             </Main>
         </BrowserRouter>

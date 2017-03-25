@@ -11,5 +11,5 @@ npm install
 ## start
 
 ```
-node .
+npm run dev
 ```

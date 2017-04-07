@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Layout extends React.Component
 {
@@ -22,7 +23,7 @@ class Layout extends React.Component
 }
 
 Layout.propTypes = {
-    children: React.PropTypes.object.isRequired
+    children: PropTypes.array.isRequired
 };
 
 export default Layout;

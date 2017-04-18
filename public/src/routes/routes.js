@@ -13,8 +13,8 @@ export default function createRoutes()
             <I18nextProvider i18n={i18n}>
                 <Main>
                     <Layout>
-                        <Route exact path="/" component={asyncComponent(() => System.import('../path/index/index').then(module => module.default))} />
-                        <Route exact path="/counter" component={asyncComponent(() => System.import('../path/counter/counter').then(module => module.default))} />
+                        <Route exact path="/" component={asyncComponent(() => System.import('../containers/index/index').then(module => module.default))} />
+                        <Route exact path="/counter" component={asyncComponent(() => System.import('../containers/counter/counter').then(module => module.default))} />
                     </Layout>
                 </Main>
             </I18nextProvider>

@@ -1,7 +1,8 @@
 import React from 'react';
-// import { syncHistoryWithStore } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { I18nextProvider } from 'react-i18next';
 import configureStore from '../store/configureStore';
 import createRoutes from '../routes/routes';
@@ -12,20 +13,23 @@ if (process.env.NODE_ENV !== 'production')
     window.Perf = require('react-addons-perf');
 }
 
-// store
-const store = configureStore();
-
 // react-router-redux
-// const history = syncHistoryWithStore(browserHistory, store);
+const history = createHistory();
+const middleware = routerMiddleware(history);
+
+// store
+const store = configureStore(middleware);
 
 // routes
 const routes = createRoutes();
 
 render(
     <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-            {routes}
-        </I18nextProvider>
+        <ConnectedRouter history={history}>
+            <I18nextProvider i18n={i18n}>
+                {routes}
+            </I18nextProvider>
+        </ConnectedRouter>
     </Provider>,
 	document.getElementById('root')
 );

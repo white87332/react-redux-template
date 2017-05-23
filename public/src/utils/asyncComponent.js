@@ -16,6 +16,7 @@ export default function asyncComponent(getComponent)
         constructor(props, context)
         {
             super(props, context);
+            this.mounted = false;
             this.state = {
                 Component: AsyncComponent.Component
             };
@@ -28,11 +29,24 @@ export default function asyncComponent(getComponent)
                 getComponent().then((Component) =>
                 {
                     AsyncComponent.Component = Component;
-                    this.setState(update(this.state, {
-                        Component: { $set: Component }
-                    }));
+                    if (this.mounted)
+                    {
+                        this.setState(update(this.state, {
+                            Component: { $set: Component }
+                        }));
+                    }
                 });
             }
+        }
+
+        componentDidMount()
+        {
+            this.mounted = true;
+        }
+
+        componentWillUnmount()
+        {
+            this.mounted = false;
         }
 
         render()
@@ -48,7 +62,10 @@ export default function asyncComponent(getComponent)
             {
                 return <Component {...props} />;
             }
-            return null;
+            else
+            {
+                return null;
+            }
         }
     };
 }

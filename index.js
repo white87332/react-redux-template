@@ -1,17 +1,17 @@
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
-const config = require('./webpack.development.config');
 
 const app = express();
 const port = 3000;
 
-const compiler = webpack(config);
-
-app.use(express.static(path.resolve('public')));
+app.use('/public', express.static(path.resolve('public')));
 
 if (process.env.NODE_ENV !== 'production')
 {
+    const webpack = require('webpack');
+    const config = require('./webpack.development.config');
+    const compiler = webpack(config);
+
     app.use(require('webpack-dev-middleware')(compiler,
         {
             noInfo: true,

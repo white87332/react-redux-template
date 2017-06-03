@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry:
@@ -53,7 +52,6 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.DefinePlugin({ 'process.env.NODE_ENV': '\'development\'' }),
-        new webpack.LoaderOptionsPlugin({ options: { postcss: [autoprefixer] } })
+        new webpack.DefinePlugin({ 'process.env.NODE_ENV': '\'development\'' })
     ]
 };

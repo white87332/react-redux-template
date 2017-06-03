@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry:
@@ -53,10 +52,7 @@ module.exports = {
         new webpack.DefinePlugin({ 'process.env.NODE_ENV': '\'production\'' }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
-            debug: false,
-            options: {
-                postcss: [autoprefixer]
-            }
+            debug: false
         }),
         new ExtractTextPlugin({
             filename: '../../css/bundle/bundle.min.css',

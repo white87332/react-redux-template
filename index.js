@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const http = require('http');
 
 const app = express();
 const port = 3000;
@@ -25,7 +26,11 @@ app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
-app.listen(port, () =>
-{
+// http
+const server = http.createServer(app).listen(3000, () => {
+    if (process.env.NODE_ENV === 'development')
+    {
+        server.keepAliveTimeout = 0;
+    }
     console.info('==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
 });

@@ -14,7 +14,7 @@ module.exports = {
     {
         path: path.resolve(__dirname, 'public', 'asset/js/bundle/'),
         filename: 'bundle.min.js',
-        publicPath: '/asset/js/bundle/',
+        publicPath: '/public/asset/js/bundle/',
         chunkFilename: 'chunk.[id].min.js'
     },
     module:
@@ -53,6 +53,14 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            beautify: false,
+            mangle: {
+                screw_ie8: true,
+                keep_fnames: true
+            },
+            comments: false
         }),
         new ExtractTextPlugin({
             filename: '../../css/bundle/bundle.min.css',

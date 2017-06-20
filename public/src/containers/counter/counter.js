@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import PropTypes from 'prop-types';
 import i18n from '../../i18n/i18n';
-import * as CounterActions from '../../actions/counter';
+import * as counterActions from '../../actions/counter';
 import './counter.scss';
 
 function mapStateToProps(state)
@@ -16,7 +16,7 @@ function mapStateToProps(state)
 
 function mapDispatchToProps(dispatch)
 {
-    return bindActionCreators(CounterActions, dispatch);
+    return bindActionCreators(counterActions, dispatch);
 }
 
 @translate(['common'], { wait: true })

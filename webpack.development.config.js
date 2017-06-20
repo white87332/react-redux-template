@@ -12,9 +12,9 @@ module.exports = {
     },
     output:
     {
-        path: '/asset/js/bundle/',
+        path: '/public/asset/js/bundle/',
         filename: 'bundle.js',
-        publicPath: '/asset/js/bundle/',
+        publicPath: '/public/asset/js/bundle/',
         chunkFilename: 'chunk.[id].js'
     },
     module:

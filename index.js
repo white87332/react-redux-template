@@ -32,5 +32,6 @@ const server = http.createServer(app).listen(3000, () => {
     {
         server.keepAliveTimeout = 0;
     }
+    /* eslint no-console: ["error", { allow: ["info"] }] */
     console.info('==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
 });

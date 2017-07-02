@@ -6,7 +6,8 @@
     },
     "extends": "airbnb",
     "globals": {
-        "log": true
+        "log": true,
+        "reactCookie": true
     },
     "parser": "babel-eslint",
     "parserOptions": {
@@ -26,10 +27,8 @@
         "consistent-return": 0,
         "global-require": 0,
         "import/no-dynamic-require": 0,
-        "import/no-unresolved": 0,
         "import/no-extraneous-dependencies": 0,
         "import/no-mutable-exports": 0,
-        "import/no-webpack-loader-syntax": 0,
         "import/prefer-default-export": 0,
         "indent": [
             2,
@@ -47,6 +46,7 @@
         ],
         "no-case-declarations": 0,
         "no-continue": 0,
+        "no-console": 2,
         "no-else-return": 0,
         "no-extraneous-dependencies": 0,
         "no-param-reassign": 0,
@@ -68,6 +68,8 @@
             0, 4
         ],
         "react/jsx-no-bind": 0,
-        "semi": [2, "always"]
+        "semi": [2, "always"],
+        "no-script-url": 0,
+        "guard-for-in": 0
     }
 }

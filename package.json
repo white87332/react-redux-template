@@ -61,8 +61,6 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
-    "gulp": "^3.9.1",
-    "gulp-imagemin": "^3.3.0",
     "node-libs-browser": "^2.0.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",

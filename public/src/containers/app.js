@@ -8,11 +8,6 @@ import configureStore from '../store/configureStore';
 import createRoutes from '../routes/routes';
 import i18n from '../i18n/i18n';
 
-if (process.env.NODE_ENV !== 'production')
-{
-    window.Perf = require('react-addons-perf');
-}
-
 // react-router-redux
 const history = createHistory();
 const middleware = routerMiddleware(history);

@@ -1,8 +1,22 @@
+import { get } from 'superagent';
+
 export function increment()
 {
-    return {
-        type: 'INCREMENT_COUNTER'
+    return async (dispatch) => {
+        let res = await get('http://165.227.109.186:5566/overview');
+        dispatch({
+            type: 'INCREMENT_COUNTER'
+        });
+        let res2 = await get('http://165.227.109.186:5566/videooverview');
+        dispatch({
+            type: 'DECREMENT_COUNTER'
+        });
     };
+
+
+    // return {
+    //     type: 'INCREMENT_COUNTER'
+    // };
 }
 
 export function decrement()

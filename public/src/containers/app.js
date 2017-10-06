@@ -1,6 +1,6 @@
 import React from 'react';
 import createHistory from 'history/createBrowserHistory';
-import { hydrate } from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { I18nextProvider } from 'react-i18next';
@@ -18,7 +18,7 @@ const store = configureStore(middleware);
 // routes
 const routes = createRoutes();
 
-hydrate(
+render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <I18nextProvider i18n={i18n}>

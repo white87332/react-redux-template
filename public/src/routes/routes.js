@@ -9,9 +9,9 @@ export default function createRoutes()
         <BrowserRouter>
             <Main>
                 <Switch>
-                    <Route exact path="/" component={asyncComponent(() => System.import('../containers/index/index').then(module => module.default))} />
-                    <Route exact path="/counter" component={asyncComponent(() => System.import('../containers/counter/counter').then(module => module.default))} />
-                    <Route exact path="/counter/test" component={asyncComponent(() => System.import('../containers/test/test').then(module => module.default))} />
+                    <Route exact path="/" component={asyncComponent(() => import('../containers/index/index').then(module => module.default))} />
+                    <Route exact path="/counter" component={asyncComponent(() => import('../containers/counter/counter').then(module => module.default))} />
+                    <Route exact path="/counter/test" component={asyncComponent(() => import('../containers/test/test').then(module => module.default))} />
                 </Switch>
             </Main>
         </BrowserRouter>

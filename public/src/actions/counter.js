@@ -1,8 +1,8 @@
-import { get } from 'superagent';
+// import { get } from 'superagent';
 
 export function increment()
 {
-    return async (dispatch) => {
+    return (dispatch) => {
         // let res = await get('http://165.227.109.186:5566/overview');
         // dispatch({
         //     type: 'INCREMENT_COUNTER'
@@ -12,7 +12,7 @@ export function increment()
         //     type: 'DECREMENT_COUNTER'
         // });
 
-        let res = await Promise.all([get('http://165.227.109.186:5566/overview'), get('http://165.227.109.186:5566/videooverview')]);
+        // let res = await Promise.all([get('http://165.227.109.186:5566/overview'), get('http://165.227.109.186:5566/videooverview')]);
         dispatch({
             type: 'INCREMENT_COUNTER'
         });

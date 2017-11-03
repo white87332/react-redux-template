@@ -2,22 +2,21 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
+import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import i18n from '../../i18n/i18n';
+import { makeCounterSelector } from '../../selectors/selectors';
 import * as counterActions from '../../actions/counter';
 import './counter.scss';
 
-function mapStateToProps(state)
-{
-    return {
-        numbers: state.counter.numbers
-    };
-}
+const mapStateToProps = createStructuredSelector({
+    counter: makeCounterSelector()
+});
 
-function mapDispatchToProps(dispatch)
+const mapDispatchToProps = (dispatch) =>
 {
     return bindActionCreators(counterActions, dispatch);
-}
+};
 
 @translate(['common'], { wait: true })
 class Counter extends React.Component
@@ -35,10 +34,10 @@ class Counter extends React.Component
 
     render()
     {
-        const { increment, incrementIfOdd, incrementAsync, decrement, numbers } = this.props;
+        const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
         return (
             <div className="counter">
-                Clicked: {numbers} times
+                Clicked: {counter.numbers} times
                 {' '}
                 <button onClick={increment}>+</button>
                 {' '}
@@ -57,7 +56,7 @@ Counter.propTypes = {
     incrementIfOdd: PropTypes.func.isRequired,
     incrementAsync: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
-    numbers: PropTypes.number.isRequired
+    counter: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);

@@ -1,2 +1,5 @@
+export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
+export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+
 export const GET_LATEST_LIST = 'GET_LATEST_LIST';
 export const GET_ERR = 'GET_ERR';

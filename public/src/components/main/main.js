@@ -16,9 +16,14 @@ class Main extends React.Component
         return (
             <div>
                 <ul>
-                    <li><Link to="/" >counter</Link></li>
-                    <li><Link to="/counter" >counter</Link></li>
-                    <li><Link to="/counter/test" >counterId</Link></li>
+                    <li>
+                        <Link href="/" to="/">index</Link>
+                    </li>
+                    <li>
+                        <Link href="/counter" to="/counter">
+                            counter
+                        </Link>
+                    </li>
                 </ul>
                 {this.props.children}
             </div>

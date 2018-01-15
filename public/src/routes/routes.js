@@ -10,6 +10,7 @@ export default function createRoutes()
             <Main>
                 <Switch>
                     <Route exact path="/" component={asyncComponent(() => import('../containers/index/index').then(module => module.default))} />
+                    <Route exact path="/threeLine" component={asyncComponent(() => import('../containers/threeLine/threeLine').then(module => module.default))} />
                     <Route exact path="/counter" component={asyncComponent(() => import('../containers/counter/counter').then(module => module.default))} />
                     <Route exact path="/counter/test" component={asyncComponent(() => import('../containers/test/test').then(module => module.default))} />
                 </Switch>

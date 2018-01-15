@@ -24,6 +24,11 @@ class Main extends React.Component
                             counter
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/threeLine" to="/threeLine">
+                            three-line
+                        </Link>
+                    </li>
                 </ul>
                 {this.props.children}
             </div>

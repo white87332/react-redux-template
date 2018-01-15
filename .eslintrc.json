@@ -7,7 +7,7 @@
     "extends": "airbnb",
     "globals": {
         "log": true,
-        "reactCookie": true
+        "THREE": true
     },
     "parser": "babel-eslint",
     "parserOptions": {

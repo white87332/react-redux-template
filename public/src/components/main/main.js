@@ -29,6 +29,11 @@ class Main extends React.Component
                             three-line
                         </Link>
                     </li>
+                    <li>
+                        <Link href="/video" to="/video">
+                            video
+                        </Link>
+                    </li>
                 </ul>
                 {this.props.children}
             </div>

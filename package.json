@@ -19,7 +19,7 @@
     "react",
     "react-router4",
     "redux",
-    "webpack2",
+    "webpack3",
     "i18next"
   ],
   "homepage": "",

@@ -28,16 +28,14 @@ module.exports = {
             },
             {
                 test: /\.css|\.scss$/,
-                use: ExtractTextPlugin.extract(
-                    {
-                        fallback: 'style',
-                        use: [
-                            { loader: 'css' },
-                            'sass',
-                            'postcss'
-                        ]
-                    }
-                )
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    use: [
+                        { loader: 'css' },
+                        'sass',
+                        'postcss'
+                    ]
+                })
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,

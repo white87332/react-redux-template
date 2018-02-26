@@ -2,26 +2,26 @@
 
 export function increment()
 {
-    return (dispatch) => {
-        // let res = await get('http://165.227.109.186:5566/overview');
-        // dispatch({
-        //     type: 'INCREMENT_COUNTER'
-        // });
-        // let res2 = await get('http://165.227.109.186:5566/videooverview');
-        // dispatch({
-        //     type: 'DECREMENT_COUNTER'
-        // });
-
-        // let res = await Promise.all([get('http://165.227.109.186:5566/overview'), get('http://165.227.109.186:5566/videooverview')]);
-        dispatch({
-            type: 'INCREMENT_COUNTER'
-        });
-    };
-
-
-    // return {
-    //     type: 'INCREMENT_COUNTER'
+    // return (dispatch) => {
+    //     // let res = await get('http://165.227.109.186:5566/overview');
+    //     // dispatch({
+    //     //     type: 'INCREMENT_COUNTER'
+    //     // });
+    //     // let res2 = await get('http://165.227.109.186:5566/videooverview');
+    //     // dispatch({
+    //     //     type: 'DECREMENT_COUNTER'
+    //     // });
+    //
+    //     // let res = await Promise.all([get('http://165.227.109.186:5566/overview'), get('http://165.227.109.186:5566/videooverview')]);
+    //     return dispatch({
+    //         type: 'INCREMENT_COUNTER'
+    //     });
     // };
+
+
+    return {
+        type: 'INCREMENT_COUNTER'
+    };
 }
 
 export function decrement()

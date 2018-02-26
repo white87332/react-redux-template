@@ -1,6 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { createEpicMiddleware } from 'redux-observable';
 import rootReducer from '../reducers';
+import rootEpic from '../epics';
+
+// const epicMiddleware = createEpicMiddleware(rootEpic);
 
 export default function configureStore(middleware, initialState)
 {
@@ -9,6 +13,7 @@ export default function configureStore(middleware, initialState)
         initialState,
         compose(
             applyMiddleware(thunk, middleware),
+            // applyMiddleware(epicMiddleware, middleware),
             window.devToolsExtension ? window.devToolsExtension() : f => f
         )
     );

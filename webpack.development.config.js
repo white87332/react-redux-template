@@ -1,5 +1,5 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     mode: 'development',
@@ -51,11 +51,6 @@ module.exports = {
         moduleExtensions: ['-loader']
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-//         new webpack.EnvironmentPlugin(['NODE_ENV']),
-//         new webpack.DefinePlugin({
-//   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-// })
+        new webpack.HotModuleReplacementPlugin()
     ]
 };

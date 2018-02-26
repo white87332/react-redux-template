@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
@@ -50,12 +49,6 @@ module.exports = {
         moduleExtensions: ['-loader']
     },
     plugins: [
-        // new webpack.DefinePlugin({ 'process.env.NODE_ENV': '\'production\'' }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
         new ExtractTextPlugin({
             filename: '../../css/bundle/bundle.min.css',
             allChunks: false

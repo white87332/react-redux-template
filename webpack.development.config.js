@@ -1,8 +1,9 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     devtool: 'source-map',
+    mode: 'development',
     entry:
     {
         app: [
@@ -51,8 +52,6 @@ module.exports = {
         moduleExtensions: ['-loader']
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.DefinePlugin({ 'process.env.NODE_ENV': '\'development\'' })
+        new webpack.HotModuleReplacementPlugin()
     ]
 };

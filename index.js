@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use('/public', express.static(path.resolve('public')));
 
-if (process.env.NODE_ENV !== 'production')
+if (process.env.NODE_ENV === 'development')
 {
     const webpack = require('webpack');
     const config = require('./webpack.development.config');

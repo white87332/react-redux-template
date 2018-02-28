@@ -1,8 +1,8 @@
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    mode: 'production',
     entry:
     {
         app: [
@@ -28,16 +28,14 @@ module.exports = {
             },
             {
                 test: /\.css|\.scss$/,
-                use: ExtractTextPlugin.extract(
-                    {
-                        fallback: 'style',
-                        use: [
-                            { loader: 'css' },
-                            'sass',
-                            'postcss'
-                        ]
-                    }
-                )
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style',
+                    use: [
+                        { loader: 'css' },
+                        'sass',
+                        'postcss'
+                    ]
+                })
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
@@ -49,19 +47,9 @@ module.exports = {
         moduleExtensions: ['-loader']
     },
     plugins: [
-        new webpack.DefinePlugin({ 'process.env.NODE_ENV': '\'production\'' }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true,
-            debug: false
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            beautify: false,
-            comments: false
-        }),
         new ExtractTextPlugin({
             filename: '../../css/bundle/bundle.min.css',
-            allChunks: false
+            allChunks: true
         })
     ]
 };

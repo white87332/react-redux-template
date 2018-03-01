@@ -14,28 +14,35 @@ class Main extends React.Component
     render()
     {
         return (
-            <div>
-                <ul>
-                    <li>
+            <div className="grid">
+                <div className="menu">
+                    <div className="item logo">
+                        <div>
+                            react-redux-template
+                        </div>
+                    </div>
+                    <div className="item">
                         <Link href="/" to="/">index</Link>
-                    </li>
-                    <li>
+                    </div>
+                    <div className="item">
                         <Link href="/counter" to="/counter">
                             counter
                         </Link>
-                    </li>
-                    <li>
+                    </div>
+                    <div className="item">
                         <Link href="/threeLine" to="/threeLine">
                             three-line
                         </Link>
-                    </li>
-                    <li>
+                    </div>
+                    <div className="item">
                         <Link href="/video" to="/video">
                             video
                         </Link>
-                    </li>
-                </ul>
-                {this.props.children}
+                    </div>
+                </div>
+                <div className="children">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

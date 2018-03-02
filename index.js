@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 80;
 
 app.use('/public', express.static(path.resolve('public')));
 

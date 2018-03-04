@@ -26,5 +26,5 @@ render(
             </I18nextProvider>
         </ConnectedRouter>
     </Provider>,
-	document.getElementById('root')
+    document.getElementById('root')
 );

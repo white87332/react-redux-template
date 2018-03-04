@@ -44,7 +44,7 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                use: 'url-loader?limit=8192&name=./asset/img/[name].[ext]'
+                use: 'url?limit=8192&name=./asset/img/[name].[ext]'
             }
         ]
     },

@@ -22,26 +22,23 @@ export default function asyncComponent(getComponent)
             };
         }
 
-        componentWillMount()
+        componentDidMount()
         {
             if (!this.state.Component)
             {
                 getComponent().then((Component) =>
                 {
                     AsyncComponent.Component = Component;
-                    if (this.mounted)
+                    if (!this.mounted)
                     {
                         this.setState(update(this.state, {
                             Component: { $set: Component }
-                        }));
+                        }), () => {
+                            this.mounted = true;
+                        });
                     }
                 });
             }
-        }
-
-        componentDidMount()
-        {
-            this.mounted = true;
         }
 
         componentWillUnmount()

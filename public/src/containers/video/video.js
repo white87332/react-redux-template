@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import equal from 'deep-equal';
+// import equal from 'deep-equal';
 import update from 'immutability-helper';
-import { addEventListener } from '../../utils/event';
+// import { addEventListener } from '../../utils/event';
 import './video.scss';
 
 class Video extends React.Component
@@ -12,78 +11,87 @@ class Video extends React.Component
         super(props, context);
         this.state = {
             classes: {
-                play: 'action play',
-                pause: 'action',
-                end: 'action',
-                progress: 0
-            }
+                ad: 'ad',
+                skip: 'skip'
+            },
+            reciprocalSeconds: 5
         };
+
+        this.skipAd = this.skipAd.bind(this);
     }
 
     componentDidMount()
     {
-        this.video.addEventListener('playing', () => {
-            this.setState(update(this.state, {
-                classes: {
-                    play: { $set: 'action' },
-                    pause: { $set: 'action pause' },
-                    end: { $set: 'action' },
-                    progress: { $set: `${(this.video.currentTime / this.video.duration) * 100}%` }
-                }
-            }));
-        });
+        this.videoPlayer = videojs(this.video);
+        this.videoPlayer.src({ type: 'video/mp4', src: '/public/asset/video/iu.mp4' });
+        this.videoPlayer.play();
 
-        this.video.addEventListener('pause', () => {
-            this.setState(update(this.state, {
-                classes: {
-                    play: { $set: 'action play' },
-                    pause: { $set: 'action' },
-                    end: { $set: 'action' },
-                    progress: { $set: `${(this.video.currentTime / this.video.duration) * 100}%` }
-                }
-            }));
-        });
+        setTimeout(() => {
+            this.startAd();
+        }, 2000);
+    }
 
-        this.video.addEventListener('timeupdate', () => {
+    startAd()
+    {
+        this.reciprocalSeconds = 5;
+        this.id = setInterval(() => {
+            this.reciprocalSeconds -= 1;
             this.setState(update(this.state, {
+                reciprocalSeconds: { $set: this.reciprocalSeconds },
                 classes: {
-                    progress: { $set: `${(this.video.currentTime / this.video.duration) * 100}%` }
+                    ad: { $set: 'ad show' },
+                    skip: { $set: (this.reciprocalSeconds === 0) ? 'skip active' : 'skip' }
                 }
-            }));
-        });
+            }), () => {
+                if (!this.videoPlayer.paused())
+                {
+                    this.videoPlayer.pause();
+                }
+            });
+        }, 1000);
+    }
 
-        this.video.addEventListener('ended', () => {
-            this.setState(update(this.state, {
-                classes: {
-                    play: { $set: 'action' },
-                    pause: { $set: 'action' },
-                    end: { $set: 'action end' },
-                    progress: { $set: 0 }
-                }
-            }));
+    skipAd()
+    {
+        this.setState(update(this.state, {
+            classes: {
+                ad: { $set: 'ad' },
+                skip: { $set: 'skip' }
+            }
+        }), () => {
+            clearInterval(this.id);
+            this.videoPlayer.play();
         });
+    }
+
+    renderReciprocal()
+    {
+        const { classes, reciprocalSeconds } = this.state;
+        if (this.reciprocalSeconds === 0)
+        {
+            clearInterval(this.id);
+            return <div onClick={this.skipAd} className={classes.skip}>Skip this ad</div>;
+        }
+        else
+        {
+            return <div className={classes.skip}>Skip this ad in {reciprocalSeconds} seconds</div>;
+        }
     }
 
     render()
     {
-        const { classes } = this.state;
         return (
             <div className="c_video">
-
-                <video ref={(video) => { this.video = video; }} id="video" autoPlay={false} preload="auto" src="/public/asset/video/iu.mp4"/>
-
-                <div className="controlBar">
-                    <div className="progressContain">
-                        <div className="progress" style={{ width: classes.progress }} />
-                    </div>
-
-                    <div className="buttons">
-                        <div className={classes.play} onClick={() => { this.video.play(); }} />
-                        <div className={classes.pause} onClick={() => { this.video.pause(); }} />
-                        <div className={classes.end} onClick={() => { this.video.play(); }} />
-                        <div className="volume">
-                            <i className="fas fa-volume-up" />
+                <video className="video-js vjs-default-skin" ref={(video) => { this.video = video; }} autoPlay controls />
+                <div className={this.state.classes.ad}>
+                    <div>
+                        <div className="content">
+                            <div>
+                                <span onClick={this.skipAd}>like</span>
+                                <span onClick={this.skipAd}>dislike</span>
+                            </div>
                         </div>
+                        {this.renderReciprocal()}
                     </div>
                 </div>
             </div>

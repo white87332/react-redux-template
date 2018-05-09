@@ -5,7 +5,7 @@ const http = require('http');
 const app = express();
 const port = process.env.PORT || 80;
 
-app.use('/public', express.static(path.resolve('public')));
+app.use('/', express.static(path.resolve('public')));
 
 if (process.env.NODE_ENV === 'development')
 {

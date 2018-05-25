@@ -8,12 +8,12 @@ export default function counter(state = initialState, action = {})
 {
     switch (action.type)
     {
-        case 'INCREMENT_COUNTER':
+        case 'COUNTER_ADD_SUC':
             return update(state, {
                 numbers: { $set: state.numbers + 1 }
             });
 
-        case 'DECREMENT_COUNTER':
+        case 'COUNTER_DES_SUC':
             return update(state, {
                 numbers: { $set: state.numbers - 1 }
             });

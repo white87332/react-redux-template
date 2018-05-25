@@ -1,13 +1,37 @@
-import { Observable } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
+import { incrementSuc, decrementSuc } from '../actions/counter';
 
-const counterEpic = (action$) =>
+const counterAddEpic = (action$) =>
 {
-    return action$.ofType('INCREMENT_COUNTER').mergeMap((action) => {
-
-        return Observable
-            .filter(action => action.type === 'DECREMENT_COUNTER')
-            .mapTo({ type: 'INCREMENT_COUNTER' });
-    });
+    return (
+        action$.ofType('COUNTER_ADD$').pipe(
+            switchMap((action) => {
+                // return observable, promise, or array
+                return Promise.resolve(action);
+            }),
+            map(() => {
+                return incrementSuc();
+            })
+        )
+    );
 };
 
-export default counterEpic;
+const counterDesEpic = (action$) =>
+{
+    return (
+        action$.ofType('COUNTER_DES$').pipe(
+            switchMap((action) => {
+                // return observable, promise, or array
+                return Promise.resolve(action);
+            }),
+            map(() => {
+                return decrementSuc();
+            })
+        )
+    );
+};
+
+export default [
+    counterAddEpic,
+    counterDesEpic
+];

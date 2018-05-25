@@ -34,7 +34,7 @@ class Counter extends React.Component
 
     render()
     {
-        const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
+        const { increment, decrement, counter } = this.props;
         return (
             <div className="counter">
                 Clicked: {counter.numbers} times
@@ -43,9 +43,9 @@ class Counter extends React.Component
                 {' '}
                 <button onClick={decrement}>-</button>
                 {' '}
-                <button onClick={incrementIfOdd}>Increment if odd</button>
+                {/* <button onClick={incrementIfOdd}>Increment if odd</button> */}
                 {' '}
-                <button onClick={() => incrementAsync()}>Increment async</button>
+                {/* <button onClick={() => incrementAsync()}>Increment async</button> */}
             </div>
         );
     }
@@ -53,8 +53,8 @@ class Counter extends React.Component
 
 Counter.propTypes = {
     increment: PropTypes.func.isRequired,
-    incrementIfOdd: PropTypes.func.isRequired,
-    incrementAsync: PropTypes.func.isRequired,
+    // incrementIfOdd: PropTypes.func.isRequired,
+    // incrementAsync: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
     counter: PropTypes.object.isRequired
 };

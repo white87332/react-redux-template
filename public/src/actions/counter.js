@@ -18,40 +18,53 @@ export function increment()
     //     });
     // };
 
-
     return {
-        type: 'INCREMENT_COUNTER'
+        type: 'COUNTER_ADD$'
+    };
+}
+
+export function incrementSuc()
+{
+    return {
+        type: 'COUNTER_ADD_SUC'
     };
 }
 
 export function decrement()
 {
     return {
-        type: 'DECREMENT_COUNTER'
+        type: 'COUNTER_DES$'
     };
 }
 
-export function incrementIfOdd()
+export function decrementSuc()
 {
-    return (dispatch, getState) =>
-    {
-        const { counter } = getState();
-        if (counter.numbers % 2 === 0)
-        {
-            return;
-        }
-
-        dispatch(increment());
+    return {
+        type: 'COUNTER_DES_SUC'
     };
 }
 
-export function incrementAsync(delay = 1000)
-{
-    return (dispatch) =>
-    {
-        setTimeout(() =>
-        {
-            dispatch(increment());
-        }, delay);
-    };
-}
+// export function incrementIfOdd()
+// {
+//     return (dispatch, getState) =>
+//     {
+//         const { counter } = getState();
+//         if (counter.numbers % 2 === 0)
+//         {
+//             return;
+//         }
+//
+//         dispatch(increment());
+//     };
+// }
+
+// export function incrementAsync(delay = 1000)
+// {
+//     return (dispatch) =>
+//     {
+//         setTimeout(() =>
+//         {
+//             dispatch(increment());
+//         }, delay);
+//     };
+// }

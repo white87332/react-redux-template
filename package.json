@@ -39,14 +39,14 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0",
     "redux-observable": "^1.0.0-alpha.2",
-    "redux-thunk": "^2.2.0",
+    "redux-thunk": "^2.3.0",
     "reselect": "^3.0.1",
     "rxjs": "6.2.0",
-    "styled-components": "^3.2.6",
+    "styled-components": "^3.3.0",
     "superagent": "^3.8.2"
   },
   "devDependencies": {
-    "autoprefixer": "^8.5.0",
+    "autoprefixer": "^8.5.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
@@ -72,7 +72,7 @@
     "sass-loader": "^7.0.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
-    "webpack": "^4.8.3",
+    "webpack": "^4.10.0",
     "webpack-cli": "^2.1.4",
     "webpack-dev-middleware": "^3.1.2",
     "webpack-hot-middleware": "^2.22.2"

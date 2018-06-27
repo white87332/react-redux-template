@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-
+console.log(__dirname);
 module.exports = {
     devtool: 'source-map',
     mode: 'development',
@@ -15,7 +15,7 @@ module.exports = {
     output:
     {
         filename: 'bundle.js',
-        publicPath: '/asset/js/bundle/',
+        publicPath: '/dist',
         chunkFilename: 'chunk.[chunkhash].js'
     },
     module:
@@ -26,20 +26,6 @@ module.exports = {
                 loader: 'babel',
                 include: path.resolve(__dirname, 'public'),
                 exclude: /node_modules/
-            },
-            {
-                test: /\.css|\.scss$/,
-                use: [
-                    'style',
-                    {
-                        loader: 'css',
-                        options: {
-                            options: { modules: false }
-                        }
-                    },
-                    'sass?outputStyle=compressed',
-                    'postcss'
-                ]
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,

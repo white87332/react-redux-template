@@ -21,13 +21,12 @@ if (process.env.NODE_ENV === 'development')
     app.use(require('webpack-hot-middleware')(compiler));
 }
 
-app.get('*', (req, res) =>
-{
+app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
 // http
-const server = http.createServer(app).listen(3000, () => {
+const server = http.createServer(app).listen(port, () => {
     if (process.env.NODE_ENV === 'development')
     {
         server.keepAliveTimeout = 0;

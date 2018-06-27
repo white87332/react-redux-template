@@ -11,9 +11,9 @@ module.exports = {
     },
     output:
     {
-        path: path.resolve(__dirname, 'public', 'asset/js/bundle/'),
+        path: path.resolve(__dirname, 'public', 'dist/'),
         filename: 'bundle.min.js',
-        publicPath: '/asset/js/bundle/',
+        publicPath: '/dist/',
         chunkFilename: 'chunk.[chunkhash].min.js'
     },
     module:
@@ -36,9 +36,8 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
-            chunks: 'async',
+            // chunks: 'all',
             cacheGroups: {
-                priority: false,
                 vendor: {
                     chunks: 'async',
                     test: /react|react-dom|react-router|react-router-dom/,

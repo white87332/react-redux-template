@@ -7,14 +7,12 @@ import PropTypes from 'prop-types';
 import i18n from '../../i18n/i18n';
 import { makeCounterSelector } from '../../selectors/selectors';
 import * as counterActions from '../../actions/counter';
-import './counter.scss';
 
 const mapStateToProps = createStructuredSelector({
     counter: makeCounterSelector()
 });
 
-const mapDispatchToProps = (dispatch) =>
-{
+const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(counterActions, dispatch);
 };
 
@@ -37,14 +35,19 @@ class Counter extends React.Component
         const { increment, decrement, counter } = this.props;
         return (
             <div className="counter">
-                Clicked: {counter.numbers} times
-                {' '}
-                <button onClick={increment}>+</button>
-                {' '}
-                <button onClick={decrement}>-</button>
-                {' '}
+                Clicked:
+                {counter.numbers}
+                times
+
+                <button type="button" onClick={increment}>
+                    +
+                </button>
+
+                <button type="button" onClick={decrement}>
+                    -
+                </button>
+
                 {/* <button onClick={incrementIfOdd}>Increment if odd</button> */}
-                {' '}
                 {/* <button onClick={() => incrementAsync()}>Increment async</button> */}
             </div>
         );

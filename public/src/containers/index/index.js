@@ -1,6 +1,5 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import './index.scss';
 
 @translate(['common'], { wait: true })
 class Index extends React.Component

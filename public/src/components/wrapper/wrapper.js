@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './main.scss';
+import { SCgrid } from './style';
 
-class Main extends React.Component
+class Wrapper extends React.Component
 {
     constructor(props)
     {
@@ -13,8 +13,9 @@ class Main extends React.Component
 
     render()
     {
+        const { children } = this.props;
         return (
-            <div className="grid">
+            <SCgrid className="grid">
                 <div className="menu">
                     <div className="item logo">
                         <div>
@@ -22,7 +23,9 @@ class Main extends React.Component
                         </div>
                     </div>
                     <div className="item">
-                        <Link href="/" to="/">index</Link>
+                        <Link href="/" to="/">
+                            index
+                        </Link>
                     </div>
                     <div className="item">
                         <Link href="/counter" to="/counter">
@@ -41,15 +44,15 @@ class Main extends React.Component
                     </div>
                 </div>
                 <div className="children">
-                    {this.props.children}
+                    {children}
                 </div>
-            </div>
+            </SCgrid>
         );
     }
 }
 
-Main.propTypes = {
+Wrapper.propTypes = {
     children: PropTypes.object.isRequired
 };
 
-export default Main;
+export default Wrapper;

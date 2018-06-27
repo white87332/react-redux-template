@@ -4,7 +4,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import rootReducer from '../reducers';
 import rootEpic from '../epics';
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
+const epicMiddleware = createEpicMiddleware();
 
 export default function configureStore(middleware, initialState)
 {
@@ -18,11 +18,11 @@ export default function configureStore(middleware, initialState)
         )
     );
 
+    epicMiddleware.run(rootEpic);
+
     if (module.hot)
-    {
-        // Enable Webpack hot module replacement for reducers
-        module.hot.accept('../reducers', () =>
-        {
+    { // Enable Webpack hot module replacement for reducers
+        module.hot.accept('../reducers', () => {
             store.replaceReducer(require('../reducers').default);
         });
     }

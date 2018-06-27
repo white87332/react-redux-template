@@ -1,4 +1,3 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -27,17 +26,6 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css|\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style',
-                    use: [
-                        { loader: 'css' },
-                        'sass',
-                        'postcss'
-                    ]
-                })
-            },
-            {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use: 'url?limit=8192&name=./asset/img/[name].[ext]'
             }
@@ -46,10 +34,17 @@ module.exports = {
     resolveLoader: {
         moduleExtensions: ['-loader']
     },
-    plugins: [
-        new ExtractTextPlugin({
-            filename: '../../css/bundle/bundle.min.css',
-            allChunks: true
-        })
-    ]
+    optimization: {
+        splitChunks: {
+            chunks: 'async',
+            cacheGroups: {
+                priority: false,
+                vendor: {
+                    chunks: 'async',
+                    test: /react|react-dom|react-router|react-router-dom/,
+                    name: 'vendor',
+                }
+            }
+        }
+    }
 };

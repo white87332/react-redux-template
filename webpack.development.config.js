@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-console.log(__dirname);
+
 module.exports = {
     devtool: 'source-map',
     mode: 'development',
@@ -15,7 +15,7 @@ module.exports = {
     output:
     {
         filename: 'bundle.js',
-        publicPath: '/dist',
+        publicPath: '/dist/',
         chunkFilename: 'chunk.[chunkhash].js'
     },
     module:

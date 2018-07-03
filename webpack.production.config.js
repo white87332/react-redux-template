@@ -33,17 +33,5 @@ module.exports = {
     },
     resolveLoader: {
         moduleExtensions: ['-loader']
-    },
-    optimization: {
-        splitChunks: {
-            // chunks: 'all',
-            cacheGroups: {
-                vendor: {
-                    chunks: 'async',
-                    test: /react|react-dom|react-router|react-router-dom/,
-                    name: 'vendor',
-                }
-            }
-        }
     }
 };

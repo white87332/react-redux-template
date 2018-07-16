@@ -5,7 +5,7 @@ const http = require('http');
 const app = express();
 const port = process.env.PORT || 80;
 
-app.use('/', express.static(path.resolve('public')));
+app.use(express.static(path.resolve('public')));
 
 if (process.env.NODE_ENV === 'development')
 {
@@ -19,11 +19,26 @@ if (process.env.NODE_ENV === 'development')
             publicPath: config.output.publicPath
         }));
     app.use(require('webpack-hot-middleware')(compiler));
-}
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-});
+    app.get('*', (req, res, next) => {
+        let filename = path.join(compiler.outputPath, 'index.html');
+        compiler.outputFileSystem.readFile(filename, (err, result) => {
+            if (err)
+            {
+                return next(err);
+            }
+            res.set('content-type', 'text/html');
+            res.send(result);
+            res.end();
+        });
+    });
+}
+else
+{
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'public', 'dist', 'index.html'));
+    });
+}
 
 // http
 const server = http.createServer(app).listen(port, () => {

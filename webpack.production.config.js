@@ -1,4 +1,7 @@
+const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -33,5 +36,13 @@ module.exports = {
     },
     resolveLoader: {
         moduleExtensions: ['-loader']
-    }
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './public/tmpl.html'
+        }),
+        new PreloadWebpackPlugin()
+    ]
 };

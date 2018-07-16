@@ -1,8 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
+    // devtool: 'source-map',
     mode: 'development',
     entry:
     {
@@ -15,7 +17,8 @@ module.exports = {
     output:
     {
         filename: 'bundle.js',
-        publicPath: '/dist/',
+        publicPath: '/public/dist/',
+        path: path.resolve(__dirname, 'public', 'dist/'),
         chunkFilename: 'chunk.[chunkhash].js'
     },
     module:
@@ -41,6 +44,11 @@ module.exports = {
         moduleExtensions: ['-loader']
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './public/tmpl.html'
+        }),
+        new PreloadWebpackPlugin()
     ]
 };

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
-    // devtool: 'source-map',
+    devtool: 'source-map',
     mode: 'development',
     entry:
     {

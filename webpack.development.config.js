@@ -19,7 +19,7 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/dist/',
         path: path.resolve(__dirname, 'dist/'),
-        chunkFilename: 'chunk.[chunkhash].js'
+        chunkFilename: 'chunk.[name].js'
     },
     module:
     {
@@ -47,10 +47,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './public/tmpl.html',
-            hash: true,
-            minify: true
-        }),
-        new PreloadWebpackPlugin()
+            template: './public/tmpl.html'
+        })
     ]
 };

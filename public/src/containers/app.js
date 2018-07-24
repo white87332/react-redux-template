@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { I18nextProvider } from 'react-i18next';
 import { injectGlobal } from 'styled-components';
+import styledNormalize from 'styled-normalize';
 import configureStore from '../store/configureStore';
 import createRoutes from '../routes/routes';
 import i18n from '../i18n/i18n';
@@ -21,6 +22,7 @@ const routes = createRoutes();
 
 /* eslint no-unused-expressions: ["error", { "allowTaggedTemplates": true }] */
 injectGlobal`
+    ${styledNormalize}
     body {
         box-sizing: border-box;
     }

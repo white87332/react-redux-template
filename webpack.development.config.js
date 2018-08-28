@@ -27,7 +27,7 @@ module.exports = {
                 test: /\.js?$/,
                 loader: 'babel',
                 include: path.resolve(__dirname, 'public'),
-                exclude: /node_modules/
+                exclude: /node_modules/,
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,

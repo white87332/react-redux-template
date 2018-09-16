@@ -5,39 +5,31 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     devtool: 'source-map',
     mode: 'development',
-    entry:
-    {
+    entry: {
         app: [
-            'webpack-hot-middleware/client',
             'babel-polyfill',
             './public/src/containers/app'
         ]
     },
-    output:
-    {
-        filename: 'bundle.js',
-        publicPath: '/dist/',
-        path: path.resolve(__dirname, 'dist/'),
-        chunkFilename: 'chunk.[name].js'
+    output: {
+        filename: '[name].bundle.js',
+            path: path.resolve(__dirname, 'dist')
     },
-    module:
-    {
-        rules: [
-            {
-                test: /\.js?$/,
-                loader: 'babel',
-                include: path.resolve(__dirname, 'public'),
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                use: 'url?limit=8192&name=./asset/img/[name].[ext]'
-            },
-            {
-                test: /\.(ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
-                loader: 'file',
-            }
-        ]
+    module: {
+        rules: [{
+            test: /\.js?$/,
+            loader: 'babel',
+            include: path.resolve(__dirname, 'public'),
+            exclude: /node_modules/,
+        },
+        {
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            use: 'url?limit=8192&name=./asset/img/[name].[ext]'
+        },
+        {
+            test: /\.(ttf|eot|svg|woff(2))(\?[a-z0-9]+)?$/,
+            loader: 'file',
+        }]
     },
     resolveLoader: {
         moduleExtensions: ['-loader']

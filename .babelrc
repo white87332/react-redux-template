@@ -12,22 +12,14 @@
             "plugins": [
                 "@babel/plugin-syntax-dynamic-import",
                 "@babel/plugin-proposal-class-properties",
-                [
-                    "react-transform", {
-                        "transforms": [
-                            {
-                                "transform": "react-transform-hmr",
-                                "imports": ["react"],
-                                "locals": ["module"]
-                            }
-                        ]
-                    }
-                ],
-                ["@babel/plugin-proposal-decorators", { "legacy": true }]
+                ["@babel/plugin-proposal-decorators", { "legacy": true }],
+                ["react-hot-loader/babel"]
             ]
         },
         "production": {
-            "plugins": ["@babel/plugin-proposal-decorators"]
+            "plugins": ["@babel/plugin-proposal-decorators", {
+                "legacy": true
+            }]
         }
     }
 }

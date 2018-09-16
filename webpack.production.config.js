@@ -45,6 +45,6 @@ module.exports = {
             hash: true,
             minify: true
         }),
-        new PreloadWebpackPlugin()
+        // new PreloadWebpackPlugin()
     ]
 };

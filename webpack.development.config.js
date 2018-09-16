@@ -7,13 +7,16 @@ module.exports = {
     mode: 'development',
     entry: {
         app: [
+            'webpack-hot-middleware/client',
             'babel-polyfill',
             './public/src/containers/app'
         ]
     },
     output: {
-        filename: '[name].bundle.js',
-            path: path.resolve(__dirname, 'dist')
+        filename: 'bundle.js',
+        publicPath: '/dist/',
+        path: path.resolve(__dirname, 'dist/'),
+        chunkFilename: 'chunk.[name].js'
     },
     module: {
         rules: [{

@@ -26,8 +26,7 @@ export default function asyncComponent(getComponent)
         {
             if (!this.state.Component)
             {
-                getComponent().then((Component) =>
-                {
+                getComponent().then((Component) => {
                     AsyncComponent.Component = Component;
                     if (!this.mounted)
                     {

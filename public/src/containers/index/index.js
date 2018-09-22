@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import { hot } from 'react-hot-loader';
 
 @translate(['common'], { wait: true })
 class Index extends React.Component
@@ -14,10 +15,10 @@ class Index extends React.Component
     {
         return (
             <div className="index">
-                index
+                index123
             </div>
         );
     }
 }
 
-export default Index;
+export default hot(module)(Index);

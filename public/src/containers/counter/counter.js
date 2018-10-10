@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import i18n from '../../i18n/i18n';
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(counterActions, dispatch);
 };
 
-@translate(['common'], { wait: true })
+@withNamespaces(['common'], { wait: true })
 class Counter extends React.Component
 {
     constructor(props, context)

@@ -1,8 +1,8 @@
 import React from 'react';
-import { translate } from 'react-i18next';
+import { withNamespaces } from 'react-i18next';
 import { hot } from 'react-hot-loader';
 
-@translate(['common'], { wait: true })
+@withNamespaces(['common'], { wait: true })
 class Index extends React.Component
 {
     constructor(props, context)

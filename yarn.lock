@@ -1402,9 +1402,9 @@ camelcase@^4.1.0:
   integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
 
 caniuse-lite@^1.0.30000890:
-  version "1.0.30000892"
-  resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000892.tgz#344d2b51ee3ff5977537da4aa449c90eec40b759"
-  integrity sha1-NE0rUe4/9Zd1N9pKpEnJDuxAt1k=
+  version "1.0.30000893"
+  resolved "http://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000893.tgz#284b20932bd41b93e21626975f2050cb01561986"
+  integrity sha1-KEsgkyvUG5PiFiaXXyBQywFWGYY=
 
 chalk@^1.1.3:
   version "1.1.3"
@@ -2035,9 +2035,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.79:
-  version "1.3.79"
-  resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.79.tgz#774718f06284a4bf8f578ac67e74508fe659f13a"
-  integrity sha1-d0cY8GKEpL+PV4rGfnRQj+ZZ8To=
+  version "1.3.80"
+  resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.80.tgz#e99ec7efe64c2c6a269d3885ff411ea88852fa53"
+  integrity sha1-6Z7H7+ZMLGomnTiF/0EeqIhS+lM=
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -4349,9 +4349,9 @@ process@~0.5.1:
   integrity sha1-FjjYqONML0QKkduVq5rrZ3/Bhc8=
 
 progress@^2.0.0:
-  version "2.0.0"
-  resolved "http://registry.npm.taobao.org/progress/download/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
-  integrity sha1-ihvjZr+Pwj2yvSPxDG/pILQ4nR8=
+  version "2.0.1"
+  resolved "http://registry.npm.taobao.org/progress/download/progress-2.0.1.tgz#c9242169342b1c29d275889c95734621b1952e31"
+  integrity sha1-ySQhaTQrHCnSdYiclXNGIbGVLjE=
 
 promise-inflight@^1.0.1:
   version "1.0.1"
@@ -4518,9 +4518,9 @@ react-hot-loader@^4.3.11:
     shallowequal "^1.0.2"
 
 react-i18next@^8.0.7:
-  version "8.0.7"
-  resolved "http://registry.npm.taobao.org/react-i18next/download/react-i18next-8.0.7.tgz#9e6ffdaa01f4454ba216fa50377a7c2ba6f1e662"
-  integrity sha1-nm/9qgH0RUuiFvpQN3p8K6bx5mI=
+  version "8.0.8"
+  resolved "http://registry.npm.taobao.org/react-i18next/download/react-i18next-8.0.8.tgz#cd6921a03a5eafb7bd9165c59dffb582a7cf8bd3"
+  integrity sha1-zWkhoDper7e9kWXFnf+1gqfPi9M=
   dependencies:
     "@babel/runtime" "^7.1.2"
     create-react-context "0.2.3"
@@ -5295,9 +5295,9 @@ style-loader@^0.23.1:
     schema-utils "^1.0.0"
 
 styled-components@^4.0.0:
-  version "4.0.0"
-  resolved "http://registry.npm.taobao.org/styled-components/download/styled-components-4.0.0.tgz#bd37d79408246302051cd63f52a3539f70aa3197"
-  integrity sha1-vTfXlAgkYwIFHNY/UqNTn3CqMZc=
+  version "4.0.2"
+  resolved "http://registry.npm.taobao.org/styled-components/download/styled-components-4.0.2.tgz#7d4409ada019cdd34c25ba68c4577ea95dbcf0c5"
+  integrity sha1-fUQJraAZzdNMJbpoxFd+qV288MU=
   dependencies:
     "@emotion/is-prop-valid" "^0.6.8"
     babel-plugin-styled-components ">= 1"
@@ -5309,9 +5309,9 @@ styled-components@^4.0.0:
     stylis-rule-sheet "^0.0.10"
 
 styled-normalize@^8.0.1:
-  version "8.0.1"
-  resolved "http://registry.npm.taobao.org/styled-normalize/download/styled-normalize-8.0.1.tgz#f1c390de61075cdcc45ae38a1c8c381c5667a0af"
-  integrity sha1-8cOQ3mEHXNzEWuOKHIw4HFZnoK8=
+  version "8.0.2"
+  resolved "http://registry.npm.taobao.org/styled-normalize/download/styled-normalize-8.0.2.tgz#c983c38ed2b0281d9f207255c02a7b2c1012228e"
+  integrity sha1-yYPDjtKwKB2fIHJVwCp7LBASIo4=
 
 stylis-rule-sheet@^0.0.10:
   version "0.0.10"
@@ -5770,9 +5770,9 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-map "~0.6.1"
 
 webpack@^4.20.2:
-  version "4.20.2"
-  resolved "http://registry.npm.taobao.org/webpack/download/webpack-4.20.2.tgz#89f6486b6bb276a91b0823453d377501fc625b5a"
-  integrity sha1-ifZIa2uydqkbCCNFPTd1AfxiW1o=
+  version "4.21.0"
+  resolved "http://registry.npm.taobao.org/webpack/download/webpack-4.21.0.tgz#bd03605c0f48c0d4aaaef78ead2769485e5afd92"
+  integrity sha1-vQNgXA9IwNSqrveOrSdpSF5a/ZI=
   dependencies:
     "@webassemblyjs/ast" "1.7.8"
     "@webassemblyjs/helper-module-context" "1.7.8"

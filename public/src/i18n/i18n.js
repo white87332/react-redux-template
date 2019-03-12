@@ -1,34 +1,29 @@
 import i18n from 'i18next';
+import detector from 'i18next-browser-languagedetector';
 import XHR from 'i18next-xhr-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next } from 'react-i18next';
 
-i18n.use(XHR)
-    .use(LanguageDetector)
+i18n
+    .use(detector)
+    .use(XHR)
+    .use(initReactI18next) // passes i18n down to react-i18next
     .init({
-        whitelist: [
-            'en-us', 'zh-tw'
-        ],
+        lng: 'en-US',
 
-        fallbackLng: 'en-us', // 未偵測到時的後備語系
+        fallbackLng: 'en-US', // use en if detected lng is not available
 
-        ns: ['common'], // 語系的 loading namespace 如語系檔案名稱 common.js
+        saveMissing: true, // send not translated keys to endpoint
 
-        defaultNS: 'common', // 預設的 namespace name
-
-        debug: false,
+        keySeparator: false, // we do not use keys in form messages.welcome
 
         interpolation: {
-            escapeValue: false // not needed for react!!
+            escapeValue: false // react already safes from xss
         },
 
-        load: 'currentOnly',
-
-        lowerCaseLng: true,
+        ns: ['common'],
 
         backend: {
-            // 設定語系檔案的 server 路徑, 會以GET的方式跟 server 要檔案
-            // lng = 語系代碼 ns = namespace
-            loadPath: '/public/asset/locales/{{lng}}/{{ns}}.json'
+            loadPath: '/asset/locales/{{lng}}/{{ns}}.json'
         }
     });
 

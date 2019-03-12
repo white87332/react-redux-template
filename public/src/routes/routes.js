@@ -23,17 +23,3 @@ export default function createRoutes()
         </Router>
     );
 }
-
-// export default function createRoutes()
-// {
-//     return (
-//         <Wrapper>
-//             <Switch>
-//                 <Route exact path="/" component={asyncComponent(() => import('../containers/index/index').then(module => module.default))} />
-//                 {/* <Route exact path="/threeLine" component={asyncComponent(() => import('../containers/threeLine/threeLine').then(module => module.default))} />
-//                 <Route exact path="/counter" component={asyncComponent(() => import('../containers/counter/counter').then(module => module.default))} />
-//                 <Route exact path="/video" component={asyncComponent(() => import('../containers/video/video').then(module => module.default))} /> */}
-//             </Switch>
-//         </Wrapper>
-//     );
-// }

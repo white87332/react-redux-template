@@ -32,25 +32,3 @@ function Index(props)
 }
 
 export default connect()(Index);
-
-// class Index extends React.Component
-// {
-//     constructor(props, context)
-//     {
-//         super(props, context);
-//         this.state = {};
-//     }
-//
-//     render()
-//     {
-//
-//         const { t, i18n } = useTranslation();
-//         return (
-//             <div className="index">
-//                 123
-//             </div>
-//         );
-//     }
-// }
-//
-// export default hot(module)(Index);

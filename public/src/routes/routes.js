@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Wrapper from '../components/wrapper/wrapper';
 
 const Index = lazy(() => import('../containers/index/index'));
+const Counter = lazy(() => import('../containers/counter/counter'));
 
 export default function createRoutes()
 {
@@ -17,6 +18,7 @@ export default function createRoutes()
                 <Wrapper>
                     <Switch>
                         <Route exact path="/" component={Index} />
+                        <Route exact path="/counter" component={Counter} />
                     </Switch>
                 </Wrapper>
             </Suspense>

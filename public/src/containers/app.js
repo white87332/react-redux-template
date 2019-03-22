@@ -1,19 +1,14 @@
 import React from 'react';
-import createHistory from 'history/createBrowserHistory';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import { I18nextProvider } from 'react-i18next';
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
-import configureStore from '../store/configureStore';
+import configureStore, { history } from '../store/configureStore';
 import createRoutes from '../routes/routes';
 import i18n from '../i18n/i18n';
 
-// react-router-redux
-const history = createHistory();
-const middleware = routerMiddleware(history);
-
 // store
-const store = configureStore(middleware);
+const store = configureStore();
 
 // routes
 const routes = createRoutes();

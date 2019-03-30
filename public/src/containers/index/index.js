@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { hot } from 'react-hot-loader/root';
 
 function Index(props)
 {
@@ -31,4 +32,4 @@ function Index(props)
     );
 }
 
-export default connect()(Index);
+export default hot((connect()(Index)));

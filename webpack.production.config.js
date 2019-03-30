@@ -1,8 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-// const PreloadWebpackPlugin = require('preload-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -46,7 +45,8 @@ module.exports = {
             hash: true,
             minify: true
         }),
-        new ScriptExtHtmlWebpackPlugin()
-        // new PreloadWebpackPlugin()
+        new PreloadWebpackPlugin({
+            rel: 'prefetch'
+        })
     ]
 };

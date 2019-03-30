@@ -1,19 +1,21 @@
+import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware, compose } from 'redux';
-// import thunk from 'redux-thunk';
+import { routerMiddleware } from 'connected-react-router';
 import { createEpicMiddleware } from 'redux-observable';
-import rootReducer from '../reducers';
+import createRootReducer from '../reducers';
 import rootEpic from '../epics';
+
+export const history = createBrowserHistory();
 
 const epicMiddleware = createEpicMiddleware();
 
-export default function configureStore(middleware, initialState)
+export default function configureStore(initialState)
 {
     const store = createStore(
-        rootReducer,
+        createRootReducer(history), // root reducer with router state,
         initialState,
         compose(
-            // applyMiddleware(thunk, middleware),
-            applyMiddleware(epicMiddleware, middleware),
+            applyMiddleware(routerMiddleware(history), epicMiddleware),
             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
         )
     );
@@ -21,7 +23,8 @@ export default function configureStore(middleware, initialState)
     epicMiddleware.run(rootEpic);
 
     if (module.hot)
-    { // Enable Webpack hot module replacement for reducers
+    {
+        // Enable Webpack hot module replacement for reducers
         module.hot.accept('../reducers', () => {
             store.replaceReducer(require('../reducers').default);
         });

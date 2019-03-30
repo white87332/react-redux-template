@@ -6,8 +6,7 @@ export function addEventListener(el, eventName, callback)
     }
     else if (el.attachEvent)
     {
-        el.attachEvent(`on${eventName}`, (e) =>
-        {
+        el.attachEvent(`on${eventName}`, (e) => {
             callback.call(el, e || window.event);
         });
     }

@@ -13,60 +13,49 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-class Wrapper extends React.Component
+export default function Wrapper(props)
 {
-    constructor(props)
-    {
-        super(props);
-        this.state = {};
-    }
+    const { children } = props;
 
-    render()
-    {
-        const { children } = this.props;
-
-        return (
-            <React.Fragment>
-                <GlobalStyle />
-                <SCgrid className="grid">
-                    <div className="menu">
-                        <div className="item logo">
-                            <div>
-                                react-redux-template
-                            </div>
-                        </div>
-                        <div className="item">
-                            <Link href="/" to="/">
-                                index
-                            </Link>
-                        </div>
-                        <div className="item">
-                            <Link href="/counter" to="/counter">
-                                counter
-                            </Link>
-                        </div>
-                        <div className="item">
-                            <Link href="/threeLine" to="/threeLine">
-                                three-line
-                            </Link>
-                        </div>
-                        <div className="item">
-                            <Link href="/video" to="/video">
-                                video
-                            </Link>
+    return (
+        <React.Fragment>
+            <GlobalStyle />
+            <SCgrid className="grid">
+                <div className="menu">
+                    <div className="item logo">
+                        <div>
+                            react-redux-template
                         </div>
                     </div>
-                    <div className="children">
-                        {children}
+                    <div className="item">
+                        <Link href="/" to="/">
+                            index
+                        </Link>
                     </div>
-                </SCgrid>
-            </React.Fragment>
-        );
-    }
+                    <div className="item">
+                        <Link href="/counter" to="/counter">
+                            counter
+                        </Link>
+                    </div>
+                    <div className="item">
+                        <Link href="/threeLine" to="/threeLine">
+                            three-line
+                        </Link>
+                    </div>
+                    <div className="item">
+                        <Link href="/video" to="/video">
+                            video
+                        </Link>
+                    </div>
+                </div>
+                <div className="children">
+                    {children}
+                </div>
+            </SCgrid>
+        </React.Fragment>
+    );
 }
 
 Wrapper.propTypes = {
     children: PropTypes.object.isRequired
 };
-
-export default Wrapper;

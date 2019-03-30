@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { hot } from 'react-hot-loader/root';
 
 function Index(props)
 {
@@ -31,26 +32,4 @@ function Index(props)
     );
 }
 
-export default connect()(Index);
-
-// class Index extends React.Component
-// {
-//     constructor(props, context)
-//     {
-//         super(props, context);
-//         this.state = {};
-//     }
-//
-//     render()
-//     {
-//
-//         const { t, i18n } = useTranslation();
-//         return (
-//             <div className="index">
-//                 123
-//             </div>
-//         );
-//     }
-// }
-//
-// export default hot(module)(Index);
+export default hot((connect()(Index)));

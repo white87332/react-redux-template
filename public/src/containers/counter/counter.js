@@ -1,59 +1,36 @@
-// import React, { useState } from 'react';
-// import { connect } from 'react-redux';
-//
-// function Counter()
-// {
-//     // Declare a new state variable, which we'll call "count"
-//     const [count, setCount] = useState(0);
-//
-//     return (
-//         <div>
-//             <p>
-//               You clicked
-//                 {count}
-//               times
-//             </p>
-//             <button onClick={() => setCount(count + 1)}>
-//                 Click me
-//             </button>
-//         </div>
-//     );
-// }
-//
-// export default connect()(Counter);
-
-import React from 'react';
-import { bindActionCreators } from 'redux';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { makeCounterSelector } from '../../selectors/selectors';
-import * as counterActions from '../../actions/counter';
+import { useTranslation } from 'react-i18next';
+import { hot } from 'react-hot-loader/root';
 
-const mapStateToProps = createStructuredSelector({
-    counter: makeCounterSelector()
-});
 
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators(counterActions, dispatch);
-};
-
-// @withNamespaces(['common'], { wait: true })
-class Counter extends React.Component
+function Counter(props)
 {
-    constructor(props, context)
-    {
-        super(props, context);
-        this.state = {};
-    }
+    // Declare a new state variable, which we'll call "count"
+    const [count, setCount] = useState(0);
+    const { t, i18n } = useTranslation('common');
 
-    render()
-    {
-        return (
-            <div className="counter">
-                123
-            </div>
-        );
-    }
+    // 與 componentDidMount 和 componentDidUpdate 類似:
+    useEffect(() => {
+        // i18n.changeLanguage('zh-tw');
+    });
+
+    return (
+        <div>
+            <p>
+                {t('you')}
+                &nbsp;
+                {t('click')}
+                &nbsp;
+                {count}
+                &nbsp;
+                {t('times')}
+            </p>
+            <button onClick={() => setCount(count + 1)}>
+                {t('clickme')}
+            </button>
+        </div>
+    );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default hot((connect()(Counter)));

@@ -1,35 +1,86 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import { bindActionCreators } from 'redux';
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { hot } from 'react-hot-loader/root';
+import { fetchTicker } from '../../actions/tick';
+import {
+    SCcontainer, SCimg, SCpercentChange, SCtitle, SCprice
+} from './style';
 
-function Index(props)
+function mapStateToProps(state)
 {
-    // Declare a new state variable, which we'll call "count"
-    const [count, setCount] = useState(0);
-    const { t, i18n } = useTranslation('common');
+    return {
+        coinmarketcap: state.coinmarketcap
+    };
+}
 
+function mapDispatchToProps(dispatch)
+{
+    return {
+        fetchTicker: bindActionCreators(fetchTicker, dispatch)
+    };
+}
+
+function index(props)
+{
     // 與 componentDidMount 和 componentDidUpdate 類似:
     useEffect(() => {
-        // i18n.changeLanguage('zh-tw');
+
+        props.fetchTicker({
+            query: {
+                limit: 10
+            }
+        });
+
+        // const { query, fetchTicker } = props;
+        //
+        // let source = interval(5000).pipe(
+        //     map(() => {
+        //         return fetchTicker({
+        //             query: {
+        //                 limit: query.limit || 10
+        //             }
+        //         });
+        //     })
+        // );
+        // source.subscribe();
     });
 
+    const renderItems = (props) =>
+    {
+        const { coinmarketcap } = props;
+        let items = [];
+        for (let key in coinmarketcap)
+        {
+            const item = coinmarketcap[key];
+            let dom = (
+                <div key={item.id}>
+                    <SCimg symbol={key} />
+                    <SCtitle className="title">
+                        {item.symbol}
+                    </SCtitle>
+                    <SCprice className="price">
+                        {item.quotes.USD.price}
+                    </SCprice>
+                    <SCpercentChange percentChange={item.quotes.USD.percent_change_24h}>
+                        {item.quotes.USD.percent_change_24h}
+                        %
+                    </SCpercentChange>
+                </div>
+            );
+            items = [...items, dom];
+        }
+
+        return items;
+    };
+
     return (
-        <div>
-            <p>
-                {t('you')}
-                &nbsp;
-                {t('click')}
-                &nbsp;
-                {count}
-                &nbsp;
-                {t('times')}
-            </p>
-            <button onClick={() => setCount(count + 1)}>
-                {t('clickme')}
-            </button>
-        </div>
+        <SCcontainer>
+            {renderItems(props)}
+        </SCcontainer>
     );
 }
 
-export default hot((connect()(Index)));
+export default hot((connect(mapStateToProps, mapDispatchToProps)(index)));

@@ -1,8 +1,10 @@
 import { combineEpics } from 'redux-observable';
-import counterEpics from './counterEpic';
+import counter from './counter';
+import coinmarketcap from './coinmarketcap';
 
 const epics = combineEpics(
-    ...counterEpics
+    ...counter,
+    ...coinmarketcap
 );
 
 export default epics;

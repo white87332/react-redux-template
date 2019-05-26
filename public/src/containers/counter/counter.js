@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { hot } from 'react-hot-loader/root';
-
+import { Button } from './button';
 
 function Counter(props)
 {
@@ -15,6 +15,11 @@ function Counter(props)
         // i18n.changeLanguage('zh-tw');
     });
 
+    function add()
+    {
+        setCount(count + 1);
+    }
+
     return (
         <div>
             <p>
@@ -26,9 +31,7 @@ function Counter(props)
                 &nbsp;
                 {t('times')}
             </p>
-            <button onClick={() => setCount(count + 1)}>
-                {t('clickme')}
-            </button>
+            <Button onClick={add} />
         </div>
     );
 }

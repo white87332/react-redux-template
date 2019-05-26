@@ -45,6 +45,7 @@ export const SCtitle = styled.h2`
 
 export const SCprice = styled.h2`
     color: #000;
+    word-break: break-all;
 `;
 
 export const SCpercentChange = styled.h2`

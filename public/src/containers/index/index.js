@@ -48,8 +48,7 @@ function index(props)
         // source.subscribe();
     });
 
-    const renderItems = (props) =>
-    {
+    const renderItems = (props) => {
         const { coinmarketcap } = props;
         let items = [];
         for (let key in coinmarketcap)

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const Button = React.memo((props) =>
-{
+export const Button = React.memo((props) => {
     const { t } = useTranslation('common');
 
     return (

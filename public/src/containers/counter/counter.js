@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { hot } from 'react-hot-loader/root';
@@ -15,10 +15,9 @@ function Counter(props)
         // i18n.changeLanguage('zh-tw');
     });
 
-    function add()
-    {
+    const add = () => {
         setCount(count + 1);
-    }
+    };
 
     return (
         <div>

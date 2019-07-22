@@ -34,6 +34,11 @@ module.exports = {
             loader: 'file',
         }]
     },
+    resolve: {
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
+    },
     resolveLoader: {
         moduleExtensions: ['-loader']
     },

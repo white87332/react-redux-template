@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -13,13 +14,26 @@ const store = configureStore();
 // routes
 const routes = createRoutes();
 
-render(
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <I18nextProvider i18n={i18n}>
-                {routes}
-            </I18nextProvider>
-        </ConnectedRouter>
-    </Provider>,
-    document.getElementById('root')
-);
+const renderDom = () => {
+    return (
+        render(
+            <Provider store={store}>
+                <ConnectedRouter history={history}>
+                    <I18nextProvider i18n={i18n}>
+                        {routes}
+                    </I18nextProvider>
+                </ConnectedRouter>
+            </Provider>,
+            document.getElementById('root')
+        )
+    );
+};
+
+if (process.env.NODE_ENV === 'production')
+{
+    renderDom();
+}
+else
+{
+    hot(renderDom());
+}

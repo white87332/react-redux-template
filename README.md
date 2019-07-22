@@ -5,11 +5,11 @@ This is a react-redux template, use react, redux, react-router webpack, babel
 ## Installation
 
 ```
-npm install
+yarn
 ```
 
 ## start
 
 ```
-npm run dev
+yarn dev
 ```

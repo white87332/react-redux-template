@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { interval } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { hot } from 'react-hot-loader/root';
 import { fetchTicker } from '../../actions/tick';
 import {
     SCcontainer, SCimg, SCpercentChange, SCtitle, SCprice
@@ -46,7 +43,7 @@ function index(props)
         //     })
         // );
         // source.subscribe();
-    });
+    }, []);
 
     const renderItems = (props) => {
         const { coinmarketcap } = props;
@@ -82,4 +79,4 @@ function index(props)
     );
 }
 
-export default hot((connect(mapStateToProps, mapDispatchToProps)(index)));
+export default connect(mapStateToProps, mapDispatchToProps)(index);

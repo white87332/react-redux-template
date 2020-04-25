@@ -25,11 +25,11 @@ function index(props)
     // 與 componentDidMount 和 componentDidUpdate 類似:
     useEffect(() => {
 
-        props.fetchTicker({
-            query: {
-                limit: 10
-            }
-        });
+        // props.fetchTicker({
+        //     query: {
+        //         limit: 10
+        //     }
+        // });
 
         // const { query, fetchTicker } = props;
         //
@@ -74,7 +74,8 @@ function index(props)
 
     return (
         <SCcontainer>
-            {renderItems(props)}
+            9999
+            {/* {renderItems(props)} */}
         </SCcontainer>
     );
 }

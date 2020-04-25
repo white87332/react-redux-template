@@ -16,10 +16,10 @@ export default function Wrapper(props)
     const { children } = props;
 
     return (
-        <React.Fragment>
+        <>
             <GlobalStyle />
             {children}
-        </React.Fragment>
+        </>
     );
 }
 

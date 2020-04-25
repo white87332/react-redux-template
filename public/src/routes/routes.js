@@ -9,8 +9,8 @@ export default function createRoutes()
             <Suspense fallback={<div>Loading...</div>}>
                 <Wrapper>
                     <Switch>
-                        <Route exact displayName="index" path="/" component={lazy(() => import('../containers/index/index'))} />
-                        <Route exact displayName="counter" path="/counter" component={lazy(() => import('../containers/counter/counter'))} />
+                        <Route exact path="/" component={lazy(() => import('../containers/index/index'))} />
+                        <Route exact path="/counter" component={lazy(() => import('../containers/counter/counter'))} />
                     </Switch>
                 </Wrapper>
             </Suspense>
